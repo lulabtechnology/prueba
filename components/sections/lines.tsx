@@ -1,10 +1,8 @@
 import Image from "next/image";
 import Reveal from "@/components/reveal";
 import Marquee from "@/components/marquee";
-import { Card } from "@/components/ui/card";
 import { ButtonLink } from "@/components/ui/button";
 import { lines } from "@/content/lines";
-import { waLink } from "@/lib/links";
 
 export default function Lines() {
   return (
@@ -24,90 +22,83 @@ export default function Lines() {
           </div>
         </Reveal>
 
-        <div className="mt-10 space-y-10">
+        <div className="mt-10 space-y-12">
           {lines.map((line, idx) => {
             const reverse = idx % 2 === 1;
+
             return (
               <Reveal key={line.key}>
-                <div
-                  className={[
-                    "rounded-[2.25rem] border border-border bg-white shadow-soft overflow-hidden",
-                    "p-6 md:p-10",
-                  ].join(" ")}
-                >
-                  <div
-                    className={[
-                      "grid items-center gap-8 lg:grid-cols-2",
-                      reverse ? "lg:[&>*:first-child]:order-2" : "",
-                    ].join(" ")}
-                  >
-                    <div className="relative">
-                      <div className={`absolute -inset-4 -z-10 rounded-[2.25rem] ${line.tone.softBgClass} blur-2xl`} />
-                      <div className="inline-flex items-center rounded-full px-4 py-2 text-xs font-extrabold tracking-tight text-white shadow-[0_10px_20px_rgba(2,6,23,0.10)]"
-                           style={{ background: "rgb(2 6 23 / 0.86)" }}>
-                        <span className={`mr-2 inline-block h-2 w-2 rounded-full ${line.tone.badgeClass}`} />
-                        Línea {line.title}
-                      </div>
-
-                      <h3 className={`mt-4 text-2xl font-extrabold tracking-tight md:text-3xl ${line.tone.accentClass}`}>
-                        {line.title}
-                      </h3>
-                      <p className="mt-3 text-base leading-7 text-muted">
-                        {line.subtitle}
-                      </p>
-
-                      <ul className="mt-5 space-y-2 text-sm text-ink/90">
-                        {line.bullets.map((b) => (
-                          <li key={b} className="flex gap-2">
-                            <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                            <span className="leading-6">{b}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                        <ButtonLink
-                          href="#contacto"
-                          size="lg"
-                          className="justify-center"
+                <div className="overflow-hidden rounded-[2.25rem] border border-border bg-white shadow-soft">
+                  <div className="p-6 md:p-10">
+                    <div
+                      className={[
+                        "grid items-center gap-10 lg:grid-cols-2",
+                        reverse ? "lg:[&>*:first-child]:order-2" : ""
+                      ].join(" ")}
+                    >
+                      <div className="relative">
+                        <div
+                          className={[
+                            "inline-flex items-center gap-2 rounded-full border border-border bg-white/90 px-4 py-2 text-xs font-extrabold text-ink shadow-[0_10px_25px_rgba(2,6,23,0.06)]",
+                            "backdrop-blur"
+                          ].join(" ")}
                         >
-                          {line.cta}
-                        </ButtonLink>
-                        <ButtonLink
-                          href={waLink()}
-                          variant="outline"
-                          size="lg"
-                          className="justify-center"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Consultar por WhatsApp
-                        </ButtonLink>
-                      </div>
-                    </div>
+                          <span className={`h-2 w-2 rounded-full ${line.tone.badgeClass}`} />
+                          Línea {line.title}
+                        </div>
 
-                    <Card className="relative overflow-hidden rounded-[2.25rem]">
-                      <div className="relative aspect-[4/3] w-full">
-                        <Image
-                          src={line.machineImage}
-                          alt={line.machineAlt}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="absolute inset-x-0 bottom-0 p-4">
-                        <div className="rounded-2xl bg-white/90 p-3 text-xs text-muted shadow-softer backdrop-blur">
-                          Placeholder: aquí irá la imagen final de la máquina con su arte tono sobre tono.
+                        <h3
+                          className={[
+                            "mt-4 text-2xl font-extrabold tracking-tight md:text-3xl",
+                            line.tone.accentClass
+                          ].join(" ")}
+                        >
+                          {line.title}
+                        </h3>
+
+                        <p className="mt-3 text-base leading-7 text-muted">
+                          {line.subtitle}
+                        </p>
+
+                        <ul className="mt-5 space-y-2 text-sm text-ink/90">
+                          {line.bullets.map((b) => (
+                            <li key={b} className="flex gap-2">
+                              <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                              <span className="leading-6">{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                          <ButtonLink href="#contacto" size="lg" className="justify-center">
+                            {line.cta}
+                          </ButtonLink>
+                          <ButtonLink href="/allergy-free" variant="outline" size="lg" className="justify-center">
+                            Ver lista Allergy Free
+                          </ButtonLink>
                         </div>
                       </div>
-                    </Card>
-                  </div>
 
-                  <div className="mt-8">
-                    <div className="mb-3 text-sm font-semibold text-ink">
-                      Productos destacados (cinta)
+                      <div className="relative">
+                        <div className={`absolute -inset-6 -z-10 rounded-[2.25rem] ${line.tone.softBgClass} blur-2xl`} />
+                        <div className="relative overflow-hidden rounded-[2.25rem] border border-border bg-white shadow-[0_16px_40px_rgba(2,6,23,0.08)]">
+                          <div className="relative aspect-[4/3] w-full">
+                            <Image
+                              src={line.machineImage}
+                              alt={line.machineAlt}
+                              fill
+                              className="object-contain p-6 md:p-8"
+                              sizes="(min-width: 1024px) 520px, 100vw"
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <Marquee items={line.marquee} />
+
+                    {/* Ruleta grande, menos items */}
+                    <div className="mt-8">
+                      <Marquee items={line.marquee} size="lg" speed="slow" />
+                    </div>
                   </div>
                 </div>
               </Reveal>
