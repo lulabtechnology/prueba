@@ -8,25 +8,31 @@
 
 html { scroll-behavior: smooth; }
 body { color: rgb(15 23 42); background: #fff; }
-
 ::selection { background: rgb(6 122 70 / 0.18); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
 
-/* Utility: subtle grid texture (premium feel) */
+/* Grid suave, muy sutil */
 .bg-soft-grid {
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(2,6,23,0.06) 1px, transparent 0);
+    radial-gradient(circle at 1px 1px, rgba(2,6,23,0.05) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
-/* Reveal baseline (used by <Reveal/>) */
-.reveal {
-  opacity: 0;
-  transform: translateY(10px);
+/* Hero background mix (estilo HelloFresh: pasteles + aire) */
+.hero-mix {
+  background:
+    radial-gradient(1200px 520px at 10% 10%, rgba(210,244,225,0.95), transparent 60%),
+    radial-gradient(900px 520px at 60% 20%, rgba(255,244,204,0.90), transparent 60%),
+    radial-gradient(1200px 560px at 90% 25%, rgba(239,232,255,0.90), transparent 62%),
+    radial-gradient(900px 520px at 65% 85%, rgba(232,247,206,0.85), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,1));
 }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(10px); }
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
