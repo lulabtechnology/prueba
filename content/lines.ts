@@ -14,23 +14,24 @@ export type LineInfo = {
     softBgClass: string;
     badgeClass: string;
   };
-  marquee: { src: string; alt: string }[];
+  marquee: { src: string; alt: string; label?: string }[];
 };
 
-const baseProducts = Array.from({ length: 12 }).map((_, i) => ({
+// Menos items (8) y más grandes (lo controla Marquee size="lg")
+const baseProducts = Array.from({ length: 8 }).map((_, i) => ({
   src: `/images/products/producto-${i + 1}.png`,
-  alt: `Producto ${i + 1}`,
+  alt: `Producto ${i + 1}`
 }));
 
 export const lines: LineInfo[] = [
   {
     key: "allergy",
     title: "Allergy Free",
-    subtitle: "Snacks y productos seleccionados para necesidades específicas.",
+    subtitle: "Selección enfocada en necesidades específicas y preferencias alimentarias.",
     bullets: [
-      "Selección enfocada en restricciones y preferencias.",
-      "Rotación cuidada para mantener frescura.",
-      "Abastecimiento y control de inventario incluidos.",
+      "Mix especializado para restricciones y preferencias.",
+      "Control de inventario y reposición programada.",
+      "Operación cuidada para una experiencia consistente."
     ],
     cta: "Quiero esta línea",
     anchorId: "lineas",
@@ -39,18 +40,18 @@ export const lines: LineInfo[] = [
     tone: {
       accentClass: "text-allergy",
       softBgClass: "bg-allergySoft",
-      badgeClass: "bg-allergy text-white",
+      badgeClass: "bg-allergy text-white"
     },
-    marquee: baseProducts,
+    marquee: baseProducts
   },
   {
     key: "premium",
     title: "Premium",
-    subtitle: "Una experiencia superior con productos y mix de alta demanda.",
+    subtitle: "Una experiencia superior para oficinas y espacios de alto tráfico.",
     bullets: [
-      "Mix premium para oficinas y espacios de alto tráfico.",
-      "Reposición programada y soporte continuo.",
-      "Presentación cuidada y experiencia de compra fluida.",
+      "Mix premium con enfoque en alta rotación y percepción.",
+      "Reposición y soporte continuo.",
+      "Presentación cuidada, look & feel más premium."
     ],
     cta: "Solicitar propuesta",
     anchorId: "lineas",
@@ -59,9 +60,9 @@ export const lines: LineInfo[] = [
     tone: {
       accentClass: "text-premium",
       softBgClass: "bg-premiumSoft",
-      badgeClass: "bg-premium text-white",
+      badgeClass: "bg-premium text-white"
     },
-    marquee: baseProducts,
+    marquee: baseProducts
   },
   {
     key: "standard",
@@ -70,7 +71,7 @@ export const lines: LineInfo[] = [
     bullets: [
       "Productos esenciales con excelente rotación.",
       "Mantenimiento y reposición incluidos.",
-      "Ideal para locales comerciales y áreas comunes.",
+      "Ideal para áreas comunes y locales comerciales."
     ],
     cta: "Quiero esta línea",
     anchorId: "lineas",
@@ -79,8 +80,8 @@ export const lines: LineInfo[] = [
     tone: {
       accentClass: "text-standard",
       softBgClass: "bg-standardSoft",
-      badgeClass: "bg-standard text-ink",
+      badgeClass: "bg-standard text-ink"
     },
-    marquee: baseProducts,
-  },
+    marquee: baseProducts
+  }
 ];
